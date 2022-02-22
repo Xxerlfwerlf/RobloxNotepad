@@ -1,0 +1,85 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Notepad = Instance.new("ScreenGui")
+local Background = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
+local X = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local TypeMenu = Instance.new("TextBox")
+local UICorner_4 = Instance.new("UICorner")
+
+--Properties:
+
+Notepad.Name = "Notepad"
+Notepad.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Notepad.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Background.Name = "Background"
+Background.Parent = Notepad
+Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Background.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Background.Position = UDim2.new(0.330503345, 0, 0.161366314, 0)
+Background.Size = UDim2.new(0, 369, 0, 486)
+
+UICorner.Parent = Background
+
+Title.Name = "Title"
+Title.Parent = Background
+Title.BackgroundColor3 = Color3.fromRGB(1, 188, 255)
+Title.BorderColor3 = Color3.fromRGB(1, 188, 255)
+Title.Size = UDim2.new(0, 333, 0, 31)
+Title.Font = Enum.Font.ArialBold
+Title.Text = "RobloxNotepad.exe"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 31.000
+
+UICorner_2.Parent = Title
+
+X.Name = "X"
+X.Parent = Background
+X.BackgroundColor3 = Color3.fromRGB(1, 188, 255)
+X.BorderColor3 = Color3.fromRGB(1, 188, 255)
+X.Position = UDim2.new(0.86178863, 0, 0, 0)
+X.Size = UDim2.new(0, 51, 0, 31)
+X.Font = Enum.Font.ArialBold
+X.Text = "X"
+X.TextColor3 = Color3.fromRGB(255, 255, 255)
+X.TextSize = 31.000
+
+UICorner_3.Parent = X
+
+TypeMenu.Name = "TypeMenu"
+TypeMenu.Parent = Background
+TypeMenu.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TypeMenu.Position = UDim2.new(0, 0, 0.0637860075, 0)
+TypeMenu.Size = UDim2.new(0, 369, 0, 455)
+TypeMenu.Font = Enum.Font.SourceSans
+TypeMenu.PlaceholderText = "RobloxNotepad.exe is running"
+TypeMenu.Text = ""
+TypeMenu.TextColor3 = Color3.fromRGB(0, 0, 0)
+TypeMenu.TextSize = 31.000
+
+UICorner_4.Parent = TypeMenu
+
+-- Scripts:
+
+local function UMJB_fake_script() -- Notepad.Open 
+	local script = Instance.new('Script', Notepad)
+
+	print("Roblox Notepad was opened.")
+end
+coroutine.wrap(UMJB_fake_script)()
+local function YZNXN_fake_script() -- X.LocalScript 
+	local script = Instance.new('LocalScript', X)
+
+	script.Parent.MouseButton1Down:Connect(function()
+		print("Roblox Notepad was closed.")
+		script.Parent.Parent.Visible = false
+	end)
+end
+coroutine.wrap(YZNXN_fake_script)()
